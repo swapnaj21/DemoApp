@@ -1,0 +1,23 @@
+Hive Host name: 18.216.202.239
+
+ 
+
+Hive port number: 10000
+
+http://localhost:8080/DemoApp/html/basketscreen1.jsp?schema=retaildb&sno=1&tablename1=categories&filter1=&s3bucket1=dmutestbucket%2Fcategories&incrementcolumn1=&
+=2&tablename2=customers&filter2=&s3bucket2=dmutestbucket%2Fcustomers&incrementcolumn2=&sno=3&tablename3=departments&filter3=&s3bucket3=dmutestbucket%2Fdepartments&incrementcolumn3=&sno=4&tablename4=order_items&filter4=&s3bucket4=dmutestbucket%2Forder_items&incrementcolumn4=&sno=5&tablename5=orders&filter5=&s3bucket5=dmutestbucket%2Forders&incrementcolumn5=&sno=6&tablename6=orders_parquet&filter6=&s3bucket6=dmutestbucket%2Forders_parquet&incrementcolumn6=&sno=7&tablename7=products&filter7=&s3bucket7=dmutestbucket%2Fproducts&incrementcolumn7=
+
+http://localhost:8080/DemoApp/html/basketscreen1.jsp?schema=retaildb&sno=1&tablename1=categories&filter1=&s3bucket1=dmutestbucket%2Fcategories&incrementcolumn1=&basket1=on&sno=2&tablename2=customers&filter2=&s3bucket2=dmutestbucket%2Fcustomers&incrementcolumn2=&
+
+sftp -oPort=22 -b hdfs://ip-172-31-20-195.us-east-2.compute.internal:8020/user/testfolder/backkup/categories dmu-user/dmu-user123@18.216.202.239
+
+“hadoop distcp” + hdfs://ip-172-31-20-195.us-east-2.compute.internal:8020/user/testfolder/backkup/categories + “/*” + “s3a://” + If AWS_ACCESS_ID variable IS NULL then “ ” else AWS_ACCESS_ID + “:” + AWS_SECRET_KEY end + “@” + TARGET_S3_BUCKET (from MySQL)
+
+hadoop distcp hdfs://ip-172-31-20-195.us-east-2.compute.internal:8020/user/testfolder/backkup/categories/*  s3a://AKIAV6TWR75UDVMMTRBL:c+vIXS5gttqGq5OD52EAxenSE2Fg+JgCv4UJd7nC@dmutestbucket/categories
+
+
+http://localhost:8080/DemoApp/html/requestnumber1.jsp?reqNum=Admin-2019-09-10%2004:46:35
+
+
+
+http://localhost:8080/DemoApp/html/datatables1.jsp?labelname=Admin-2019-09-10+09%3A34%3A03&databasename=retaildb&bucket=dmutestbucket

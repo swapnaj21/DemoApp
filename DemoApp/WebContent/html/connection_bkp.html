@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Data Migration Utility</title>
+
+  <!-- Bootstrap -->
+  <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="font-awesome-5.0.8/css/fontawesome-all.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <section id="inner-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="inner-logo">
+            <h2><span>DE</span>Data Migration Utility</h2>
+          </div>
+        </div>
+        <div class="col-md-5 text-right">
+          <a href="basketscreen.html" class="topbasketbutton"><span class="basketpendingbadge">1</span><i
+              class="fas fa-shopping-basket"></i> Basket</a>
+          <div class="top-user-menu dropdown pull-right" dropdown="">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="true">
+              <i class="fa fa-user"></i> John Doe
+              <span class="caret"></span>
+            </button>
+            <ul aria-labelledby="dLabel" class="dropdown-menu">
+              <li>
+                <a href="settings.html">Settings</a>
+              </li>
+              <li>
+                <a href="login.html">Signout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--Eof Header-->
+
+
+  <section id="main-content-wrapper">
+    <div class="container settings-page-wrapper">
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs settings-tabs" role="tablist">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="settings.html">Users</a></li>
+        <li class="active"><a href="connection.html">Connection</a>
+        </li>
+      </ul>
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <!-- Sof Connection Content-->
+        <div class="connection-wrapper">
+          <div class="row">
+            <div class="col-md-12">
+              <h3>Connection</h3>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <!--Sof AWS-->
+              <div class="box">
+                <h4>AWS S3</h4>
+                <div class="box-content">
+                  <div class="radio radio-primary radio-block">
+                    <input type="radio" name="awsconnect" id="radio1" value="option1">
+                    <label for="radio1">AWS Access Credentials included in HDFS Site</label>
+                  </div>
+                  <div class="radio radio-primary radio-block">
+                    <input type="radio" name="awsconnect" id="awsaccess" value="option1">
+                    <label for="awsaccess">AWS Access details to be provided</label>
+                  </div>
+                  <div class="form-horizontal setting-form" id="awsaccess_form">
+                    <div class="form-group">
+                      <label class="col-md-5">AWS Access Key</label>
+                      <div class="col-md-7"><input type="text" class="form-control"></div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-5">AWS Secret Key</label>
+                      <div class="col-md-7"><input type="text" class="form-control"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--Eof AWS-->
+
+              <!--Sof HDFS-->
+              <div class="box">
+                <h4>HDFS</h4>
+                <div class="box-content">
+                  <div class="radio radio-primary radio-block">
+                    <input type="radio" name="hdfs" id="hivedirect" value="option1">
+                    <label for="hivedirect">Hive Direct Connection</label>
+                  </div>
+                  <div class="form-horizontal setting-form" id="hivedirect_form">
+                    <div class="form-group">
+                      <label class="col-md-5">Hive Host Name</label>
+                      <div class="col-md-7"><input type="text" class="form-control"></div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-5">Hive Port Name</label>
+                      <div class="col-md-7"><input type="text" class="form-control"></div>
+                    </div>
+                  </div>
+
+                  <div class="radio radio-primary radio-block">
+                    <input type="radio" name="hdfs" id="impalahost" value="option1">
+                    <label for="impalahost">Hive Using Impala Connection</label>
+                  </div>
+
+                  <div class="form-horizontal setting-form" id="impalahost_form">
+                    <div class="form-group">
+                      <label class="col-md-5">Impala Host Name</label>
+                      <div class="col-md-7"><input type="text" class="form-control"></div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-5">Impala Port Name</label>
+                      <div class="col-md-7"><input type="text" class="form-control"></div>
+                    </div>
+                  </div>
+
+                  <div class="radio radio-primary radio-block">
+                    <input type="radio" name="hdfs" id="sparkconnect" value="option1">
+                    <label for="sparkconnect">Spark on Hive Connection</label>
+                  </div>
+
+                  <div class="form-horizontal setting-form" id="spark_form">
+                    <div class="form-group">
+                      <label class="col-md-5">SQL Warehouse Dir</label>
+                      <div class="col-md-7"><input type="text" class="form-control"></div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-5">Hive Metastore URI</label>
+                      <div class="col-md-7"><input type="text" class="form-control"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!--Eof HDFS-->
+            </div>
+            <div class="col-md-6">
+              <!--Sof Auth-->
+              <div class="box">
+                <h4>Authentication Type</h4>
+                <div class="box-content">
+                  <div class="radio radio-primary radio-block">
+                    <input type="radio" name="auth" id="auth1" value="option1">
+                    <label for="auth1">Unsecured Connection</label>
+                  </div>
+                  <div class="radio radio-primary radio-block">
+                    <input type="radio" name="auth" id="ldapconnect" value="option1">
+                    <label for="ldapconnect">LDAP Connection</label>
+                  </div>
+                  <div class="form-horizontal setting-form" id="ldap_form">
+                    <div class="form-group">
+                      <label class="col-md-5">Username</label>
+                      <div class="col-md-7"><input type="text" class="form-control"></div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-5">Password</label>
+                      <div class="col-md-7"><input type="text" class="form-control"></div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-5">Domain</label>
+                      <div class="col-md-7"><input type="text" class="form-control"></div>
+                    </div>
+                  </div>
+                  <div class="radio radio-primary radio-block">
+                    <input type="radio" name="auth" id="kerberosconnect" value="option1">
+                    <label for="kerberosconnect">Kerberos</label>
+                  </div>
+
+                  <div class="form-horizontal setting-form" id="kerberos_form">
+                    <div class="form-group">
+                      <label class="col-md-5">Host Realm</label>
+                      <div class="col-md-7"><input type="text" class="form-control"></div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-5">Host FQDN</label>
+                      <div class="col-md-7"><input type="text" class="form-control"></div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-5">Service Name</label>
+                      <div class="col-md-7"><input type="text" class="form-control"></div>
+                    </div>
+                    <div class="form-group">
+                      <label class="col-md-5">SSL key path</label>
+                      <div class="col-md-7"><input type="text" class="form-control"></div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <!--Eof Auth-->
+            </div>
+          </div>
+          <div class="footerbuttons">
+            <button class="btn btn-success">Test Connection</button>
+          </div>
+        </div>
+        <!-- Eof Connection Content-->
+      </div>
+    </div>
+  </section>
+  <!-- Eof Mid Content-->
+
+  <section id="login-footer">
+    <div class="container">
+      <div class="poweredby">
+        <p>Powered by</p>
+        <img src="images/data_economy_logo.png" alt="Data Economy" />
+      </div>
+    </div>
+  </section>
+
+  <!--Eof Footer-->
+
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+      })
+    });
+
+    // Radio Click function
+    function switchVar() {
+      if ($("#awsaccess").prop("checked"))
+        $("#awsaccess_form").show();
+      else
+        $("#awsaccess_form").hide();
+
+      if ($("#impalahost").prop("checked"))
+        $("#impalahost_form").show();
+      else
+        $("#impalahost_form").hide();
+
+      if ($("#hivedirect").prop("checked"))
+        $("#hivedirect_form").show();
+      else
+        $("#hivedirect_form").hide();
+
+      if ($("#sparkconnect").prop("checked"))
+        $("#spark_form").show();
+      else
+        $("#spark_form").hide();
+
+      if ($("#ldapconnect").prop("checked"))
+        $("#ldap_form").show();
+      else
+        $("#ldap_form").hide();
+
+      if ($("#kerberosconnect").prop("checked"))
+        $("#kerberos_form").show();
+      else
+        $("#kerberos_form").hide();
+
+    }
+
+    $(document).ready(function () {
+      switchVar();
+      $("input[name=awsconnect]").change(switchVar);
+      $("input[name=hdfs]").change(switchVar);
+      $("input[name=auth]").change(switchVar);
+    });
+  </script>
+</body>
+
+</html>

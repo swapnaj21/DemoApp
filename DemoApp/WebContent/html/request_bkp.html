@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Data Migration Utility</title>
+
+  <!-- Bootstrap -->
+  <link href="bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="font-awesome-5.0.8/css/fontawesome-all.min.css" rel="stylesheet">
+  <link href="css/bootstrap-select.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+  <section id="inner-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7">
+          <div class="inner-logo">
+            <h2><span>DE</span>Data Migration Utility</h2>
+          </div>
+        </div>
+        <div class="col-md-5 text-right">
+          <a href="basketscreen.html" class="topbasketbutton"><span class="basketpendingbadge">1</span><i
+              class="fas fa-shopping-basket"></i> Basket</a>
+          <div class="top-user-menu dropdown pull-right" dropdown="">
+            <button class="btn dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="true">
+              <i class="fa fa-user"></i> John Doe
+              <span class="caret"></span>
+            </button>
+            <ul aria-labelledby="dLabel" class="dropdown-menu">
+              <li>
+                <a href="settings.html">Settings</a>
+              </li>
+              <li>
+                <a href="login.html">Signout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--Eof Header-->
+
+  <section id="main-menu">
+    <div class="container">
+      <nav class="navbar">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </div>
+
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+              <li><a href="home.html"><i class="fas fa-home"></i> Home</a></li>
+              <li class="active"><a href="request.html"><i class="fas fa-file"></i> Request</a></li>
+              <li><a href="history.html"><i class="fas fa-history"></i> History</a></li>
+              <li><a href="recon.html"><i class="fas fa-retweet"></i> Recon</a></li>
+              <li><a href="help.html"><i class="fas fa-question"></i> Help</a></li>
+            </ul>
+
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+    </div>
+  </section>
+  <!--Eof Menu-->
+
+  <section id="main-content-wrapper">
+    <div class="container mainwrapper request-wrapper">
+      <h3>Migration Options</h3>
+      <div class="row flex">
+        <div class="col-md-4 pdr-0 rightborder">
+          <div class="radio radio-primary radio-block">
+            <input type="radio" name="requestmigration" id="hdfctos3" value="option1" checked>
+            <label for="hdfctos3">HDFS to S3</label>
+          </div>
+          <div class="radio radio-primary radio-block">
+            <input type="radio" name="requestmigration" id="teradatatos3" value="option2">
+            <label for="teradatatos3">Teradata to S3</label>
+          </div>
+
+          <div class="radio radio-primary radio-block">
+            <input type="radio" name="requestmigration" id="teradatatoredshift" value="option3">
+            <label for="teradatatoredshift">Teradata to RedShift</label>
+          </div>
+
+          <div class="radio radio-primary radio-block">
+            <input type="radio" name="requestmigration" id="teradatatosnowflake" value="option4">
+            <label for="teradatatosnowflake">Teradata to Snowflake</label>
+          </div>
+
+        </div>
+        <div class="col-md-8 pdl-0">
+          <!--Sof Hdfs to s3 content-->
+          <div class="tabs-content-wrapper" id="hdfstos3wrapper_form">
+            <h4>HDFS to S3</h4>
+                <form role="form">
+                  <div id="databasetypes">
+                      <div class="form-group">
+                        <label>Create Label</label>
+                        <input type="text" class="form-control" placeholder="Label" />
+                      </div>
+
+                      <div class="form-group">
+                        <label>Migration Type</label>
+                        <select class="form-control selectpicker" id="migrationtype_select">
+                          <option>--Select Migration Type--</option>
+                          <option value="fulldatabase_form">Full Database</option>
+                          <option value="listoftables_form">List of tables from spreadsheet (csv file)</option>
+                        </select>
+                      </div>
+
+                      <div class="fulldatabase-content">
+                        <div class="form-group">
+                          <label>Database Name</label>
+                          <select class="form-control">
+                            <option>--Select Database--</option>
+                            <option>ABC</option>
+                            <option>DEF</option>
+                            <option>GHI</option>
+                          </select>
+                        </div>
+                        <div class="form-group">
+                          <label>Target S3 Bucket</label>
+                          <input type="text" class="form-control" placeholder="S3 Bucket" />
+                        </div>
+                      </div>
+
+                    <div class="listoftables-content">
+                      <div class="form-group">
+                        <label>File Path</label>
+                        <input type="file" class="fileUploadBox" />
+                      </div>
+                    </div>
+                </div>
+              </form>
+            </div>
+            <!--Eof Hdfs to s3 content-->
+
+            <!--Sof Teradata to S3-->
+<div class="tabs-content-wrapper" id="teradatatos3wrapper_form">
+  <h4>Teradata to S3</h4>
+  <p>This feature will be enabled in upcoming release</p>
+</div>
+            <!--Eof Teradata to S3-->
+
+              <!--Sof Teradata to RedShift-->
+<div class="tabs-content-wrapper" id="teradatatoredshiftwrapper_form">
+  <h4>Teradata to RedShift</h4>
+  <p>This feature will be enabled in upcoming release</p>
+</div>
+            <!--Eof Teradata to RedShift-->
+
+              <!--Sof Teradata to Snowflake-->
+<div class="tabs-content-wrapper" id="teradatatosnowflakewrapper_form">
+  <h4>Teradata to Snowflake</h4>
+  <p>This feature will be enabled in upcoming release</p>
+</div>
+            <!--Eof Teradata to snowflake-->
+        </div>
+      </div>
+    <div class="footerbuttons">
+      <a href="home.html" class="btn btn-default-outline">Cancel</a>
+      <a href="datatables.html" class="btn btn-success">Continue</a>
+    </div>
+    </div>
+    </div>
+  </div>
+    </div>
+  </section>
+  <!-- Eof Mid Content-->
+
+  <section id="login-footer">
+    <div class="container">
+      <div class="poweredby">
+        <p>Powered by</p>
+        <img src="images/data_economy_logo.png" alt="Data Economy" />
+      </div>
+    </div>
+  </section>
+
+  <!--Eof Footer-->
+
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  <script src="js/bootstrap-select.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+      })
+      //select items
+      $(function () {
+  $("#migrationtype_select").change(function() {
+    var val = $(this).val();
+    if(val === "fulldatabase_form") {
+        $(".fulldatabase-content").show();
+        $(".listoftables-content").hide();
+    }
+    else if(val === "listoftables_form") {
+      $(".listoftables-content").show();
+      $(".fulldatabase-content").hide();
+    }
+    else{
+      $(".listoftables-content").hide();
+      $(".fulldatabase-content").hide();
+    }
+  });
+});
+    });
+  </script>
+  <script>
+     // Radio Click function
+     function switchVar() {
+      if ($("#hdfctos3").prop("checked"))
+         $("#hdfstos3wrapper_form").show() & $("#hdfctos3").parent().addClass("active");
+         
+      else
+        $("#hdfstos3wrapper_form").hide() & $("#hdfctos3").parent().removeClass("active");;
+      if ($("#teradatatos3").prop("checked"))
+        $("#teradatatos3wrapper_form").show() & $("#teradatatos3").parent().addClass("active");
+      else
+        $("#teradatatos3wrapper_form").hide() & $("#teradatatos3").parent().removeClass("active");
+
+        if ($("#teradatatoredshift").prop("checked"))
+        $("#teradatatoredshiftwrapper_form").show() & $("#teradatatoredshift").parent().addClass("active");
+      else
+        $("#teradatatoredshiftwrapper_form").hide() & $("#teradatatoredshift").parent().removeClass("active");
+
+        if ($("#teradatatosnowflake").prop("checked"))
+        $("#teradatatosnowflakewrapper_form").show() & $("#teradatatosnowflake").parent().addClass("active");
+      else
+        $("#teradatatosnowflakewrapper_form").hide() & $("#teradatatosnowflake").parent().removeClass("active");
+
+
+}
+    $(document).ready(function () {
+      switchVar();
+      $("input[name=requestmigration]").change(switchVar);
+    });
+  </script>
+</body>
+
+</html>
